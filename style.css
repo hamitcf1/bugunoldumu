@@ -177,12 +177,15 @@
 }
 
   footer {
+  font-size: 0.8rem;
+  margin-top: auto;
+  opacity: 30%;
+  position: relative;
   width: 100%;
   bottom: 0;
   background-color: #000000;
   color: #eee;
   text-align: center;
   padding: 1rem;
-  position: relative;
   z-index: 10;
 }
