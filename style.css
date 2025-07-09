@@ -1,0 +1,188 @@
+/* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f0f0;
+      color: #fff;
+    }
+    
+    .end-note {
+  width: 100%;
+  bottom: 0;
+  background-color: #000000;
+  color: #eee;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 10;
+}
+    #container {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      width: 100vw;
+    }
+    /* Responsive: stack columns on narrow screens */
+    @media (max-width: 768px) {
+      #container {
+        flex-direction: column;
+      }
+    }
+
+    /* Left column - "Bugün öldü mü?" */
+    #left-column {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    #left-column.somber {
+      background-color: #121212;
+      color: #bbb;
+      overflow: visible;
+    }
+    #left-column.festive {
+      background-color: #d32f2f;
+      color: white;
+      overflow: visible;
+    }
+    #left-column h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    #left-column p {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Right column - countdown */
+    #right-column {
+      flex: 1;
+      background: #222;
+      color: #eee;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    #right-column h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    #countdown {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* Liquid fill container */
+    #liquid-container {
+      position: relative;
+      width: 150px;
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #444;
+      box-shadow: inset 0 0 15px #222;
+    }
+    #liquid-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(180deg, #e30b17 0%, #a00a12 100%);
+    border-radius: 15px 15px 0 0;
+    transition: height 0.5s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Changed from flex-end */
+    overflow: hidden;
+    }
+    /* Wave animation inside liquid fill */
+    #liquid-wave {
+      position: absolute;
+      bottom: 0;
+      width: 200%;
+      height: 100%;
+      background: url('image/svg+xml;utf8,<svg width="1440" height="320" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23ff0000" fill-opacity="0.5" d="M0,160L48,165.3C96,171,192,181,288,186.7C384,192,480,192,576,165.3C672,139,768,85,864,85.3C960,85,1056,139,1152,165.3C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x;
+      animation: wave 4s linear infinite;
+      opacity: 0.4;
+      transform: translateX(0);
+    }
+    @keyframes wave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    #liquid-percentage {
+    position: relative;
+    z-index: 2;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 5px #900;
+    margin: 1rem; /* Remove margin to center perfectly */
+    }
+
+    /* Confetti styles */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: linear-gradient(to bottom, #0b0ee3 0%, #eaff00 100%);
+      pointer-events: none;
+      animation: confetti-fall 3s linear infinite;
+      border-radius: 2px;
+      z-index: 1000;
+    }
+    .confetti:nth-child(odd) {
+      background-color: #fff;
+    }
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    .rain-drop {
+  position: absolute;
+  top: -20px;
+  width: 2px;
+  height: 18px;
+  background: linear-gradient(to bottom, #8fa3ad 0%, #536471 100%);
+  opacity: 0.4;
+  border-radius: 1px;
+  pointer-events: none;
+  animation: rain-fall 1.2s linear infinite;
+  z-index: 100;
+}
+@keyframes rain-fall {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(110vh) scaleX(0.85);
+    opacity: 0;
+  }
+}
+
+
