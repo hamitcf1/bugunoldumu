@@ -51,8 +51,8 @@ function createRainEffect(container, dropCount = 60) {
     const drop = document.createElement('div');
     drop.classList.add('rain-drop');
     drop.style.left = Math.random() * 100 + '%';
-    drop.style.animationDelay = (Math.random() * 1.2) + 's';
-    drop.style.opacity = (0.25 + Math.random() * 0.5).toFixed(2);
+    drop.style.animationDelay = (Math.random() * 1.5) + 's';
+    drop.style.opacity = (0.25 + Math.random() * 0.2).toFixed(2);
     drop.style.height = (12 + Math.random() * 16) + 'px';
     container.appendChild(drop);
   }
@@ -97,7 +97,7 @@ if (
       diff -= minutes * (1000 * 60);
       const seconds = Math.floor(diff / 1000);
 
-      countdownEl.textContent = `${days} gün ${hours} saat ${minutes} dakika ${seconds} saniye kaldı`;
+      countdownEl.textContent = `${days} Gün ${hours} Saat ${minutes} Dakika ${seconds} Sn. kaldı.`;
 
       // Calculate elapsed percentage between last election and next election
       const totalCycle = electionDate - lastElectionDate;
@@ -114,3 +114,11 @@ if (
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
+const dateEl = document.getElementById('date');
+const today = new Date();
+const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+dateEl.textContent = today.toLocaleDateString('tr-TR', options);
+dateEl.setAttribute('aria-label', `Bugünün tarihi: ${today.toLocaleDateString('tr-TR', options)}`);
+dateEl.style.display = 'block'; // Show the date element
+dateEl.style.marginBottom = '1rem'; // Add some spacing below
+dateEl.style.fontSize = '2rem'; // Increase font size for better visibility

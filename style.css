@@ -44,14 +44,21 @@
       overflow: visible;
     }
     #left-column h1 {
-      font-size: 3rem;
+      font-size: 5rem;
       margin-bottom: 1rem;
       text-align: center;
     }
     #left-column p {
-      font-size: 2rem;
+      font-size: 3rem;
       font-weight: bold;
       text-align: center;
+    }
+
+    #left-column .date {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #8b0000;
     }
 
     /* Right column - countdown */
@@ -93,7 +100,7 @@
     bottom: 0;
     width: 100%;
     height: 0%;
-    background: linear-gradient(180deg, #e30b17 0%, #a00a12 100%);
+    background: linear-gradient(180deg, #ff000d 0%, #500509 100%);
     border-radius: 15px 15px 0 0;
     transition: height 0.5s ease-out;
     display: flex;
@@ -120,6 +127,7 @@
     position: relative;
     z-index: 2;
     font-size: 2rem;
+    padding-left: 0.5rem;
     font-weight: bold;
     color: white;
     text-shadow: 0 0 5px #900;
@@ -179,7 +187,7 @@
   footer {
   font-size: 0.8rem;
   margin-top: auto;
-  opacity: 30%;
+  opacity: 50%;
   position: relative;
   width: 100%;
   bottom: 0;
